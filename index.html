@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Think Aerial</title>
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body id="body">
+    <div id="overlay">
+      <h2>Drop It</h2>
+    </div>
+    <!-- <script src="https://unpkg.com/ol@latest/dist/ol.js"></script> -->
+    <div class="topnav">
+      <div>
+        <h2 class="logo">Think Aerial</h2>
+      </div>
+      <div class="flex topnav-second-div">
+        <input
+          type="file"
+          multiple
+          accept=".kml,.kmz,.zip,.shp,.dwg,.dxf"
+          placeholder="files"
+          id="files"
+        />
+        <!-- <p>Share</p>
+        <p>profile</p>
+        <a href="/Beforelogin/Login.html">login</a>
+        <a href="/compare.html">compare</a> -->
+      </div>
+    </div>
+    <div class="secondnav" id="secondnav">
+      <div class="layer-list" id="layer-list">
+      </div>
+      <hr class="secondNav-hr">
+    </div>
+    <!-- <div class="secondnav" id="secondnav">
+      <div class="layer-list">
+        <div class="layer-list-item">
+          <label for="ortho1">Ortho 1</label><br />
+          <input
+            type="radio"
+            id="ortho1"
+            name="orthophoto"
+            value="ortho1"
+            checked
+          />
+        </div>
+        <div class="layer-list-item">
+          <label for="ortho2">Ortho 2</label><br />
+          <input type="radio" id="ortho2" name="orthophoto" value="ortho2" />
+        </div>
+        <div class="layer-list-item">
+          <label for="ortho3">Ortho 3</label>
+          <input type="radio" id="ortho3" name="orthophoto" value="ortho3" />
+        </div>
+      </div>
+    </div> -->
+    <div class="tool-tip">
+      <!-- <button id="lineBtn" style="transform: rotate(135deg);">I</button> -->
+      <button id="cursor">
+        <i class="fa-solid fa-arrow-pointer"></i>
+      </button>
+      <button id="lineBtn">
+        <i class="fa-solid fa-grip-lines-vertical"></i>
+      </button>
+      <button id="areaBtn"><i class="fa-solid fa-draw-polygon"></i></button>
+      <button id="locate"><i class="fa-solid fa-map-pin"></i></button>
+    </div>
+
+    <!-- main content -->
+    <div class="main-content">
+      <div id="sidebar" class="sidebar sidenav1">
+        <h3>Annotations</h3>
+        <br />
+        <hr />
+        <br />
+        <ul id="measurements"></ul>
+      </div>
+      <div class="collapse-left" id="collapse-left">></div>
+
+      <div class="collapse-top" id="collapse-top">></div>
+      <div id="map" class="map"></div>
+      <div class="collapse-right" id="collapse-right">></div>
+      <div id="sidebar" class="sidebar sidenav2">
+        <div class="second-sidenav-textinput flex">
+          <input type="text" id="labelInput" placeholder="Enter Label" />
+          <button id="saveBtn">Save</button>
+        </div>
+        <br />
+        <hr />
+        <br />
+        <div id="edit-options"></div>
+      </div>
+    </div>
+    <div class="bottomnav">
+      <select id="unitConversion">
+        <option value="meters">Meters (m)</option>
+        <option value="kilometers">Kilometers (km)</option>
+        <option value="feet">Feet (ft)</option>
+        <option value="miles">Miles (mi)</option>
+        <option value="acres" id="acres">Acres</option>
+        <option value="hectares" id="hectares">Hectares</option>
+      </select>
+      <p id="lat-long"></p>
+      <p id="lat-long-click"></p>
+    </div>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/ol@6.10.1/dist/ol.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/ol@6.15.1/dist/ol.js"></script>
+    <script type="module" src="optimized.js"></script>
+    <script type="module" src="Scripts/FileHandler/Drop.js"></script>
+    <script type="module" src="Scripts/OrthoLayer/orthoLayer.js"></script>
+    <script type="module" src="dragAndDropFile.js"></script>
+    <script type="module" src="Scripts/Collapse.js"></script>
+    <script src="https://unpkg.com/shpjs@latest/dist/shp.js"></script>
+    <script src="compare.js"></script>
+  </body>
+</html>
